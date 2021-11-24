@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uebersicht{% endblock %}
+{% set lastSection = -1 %}
+{% set closeSection = false %}
+
+
+{% block body %}
+
+    <div class="row">
+
+    {% for item in items %}
+        {% if lastSection != item.section %}
+
+            </div>
+            <div class="row">
+                <div class="col m4">
+        {%  if item.section.Name is defined %}<h3> {{ item.section.Name }}</h3>{% endif %}
+                </div>
+                <div class="col m4">
+        {%  if item.section.Description is defined %}<h4> {{ item.section.Description }}</h4>{% endif %}
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+
+        {% set lastSection = item.Section %}
+        {% set closeSection = true %}
+        {% endif %}
+        <div class="col m3">
+            <section class="yaadaApp z-depth-2">
+                <a href="{{ item.link }}"{% if item.newTab %} target="_blank"{% endif %}>
+                    <div class="item">
+                        <div class="appImage"><img src="{{ asset("build/images/noImage.png") }}"></div>
+                        <div class="details">
+                            <div class="title">{{ item.name }}</div>
+                            <div class="description">{{ item.description }}</div>
+                        </div>
+                        <div class="buttons">
+                            <a class="btn-floating btn-small waves-light blue-grey-text" href="/edit/{{ item.id }}">
+                                <i class="tiny material-icons">
+                                    edit
+                                </i>
+                            </a>
+
+                        </div>
+                    </div>
+                </a>
+
+
+            </section>
+        </div>
+
+        {% endfor %}
+    </div>
+        {% endblock %}
+
+        {% block footer_js %}
+        {% endblock %}

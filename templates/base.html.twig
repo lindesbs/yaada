@@ -1,19 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>yaada - {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {{ encore_entry_script_tags('app') }}
+    {% block javascripts %}
+    {% endblock %}
+
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h4 class="center-align">{% trans %}yaada.title{% endtrans %}</h4>
+    <h6 class="center-align">{% trans %}yaada.subtitle{% endtrans %}</h6>
+</div>
+
+<div class="divider"></div>
+
+<div class="container">
+    {% block body %}{% endblock %}
+
+</div>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue-grey">
+        <i class="small material-icons">menu</i>
+    </a>
+    <ul>
+        <li><a href="{{ path("about") }}" class="btn-floating red" title="Über yaada"><i class="material-icons">insert_chart</i></a>
+        </li>
+        <li><a href="{{ path("settings") }}" class="btn-floating yellow darken-1" title="Einstellungen"><i
+                        class="material-icons">format_quote</i></a>
+        </li>
+        <li><a href="{{ path("application_add") }}" class="btn-floating green" title="Neue Applikation"><i
+                        class="material-icons">library_add</i></a></li>
+        <li><a href="{{ path("application_add_section") }}" class="btn-floating blue" title="Neue Sektion"><i
+                        class="material-icons">playlist_add</i></a></li>
+    </ul>
+</div>
+
+{% block footer_js %}
+{% endblock %}
+
+
+<script>
+
+</script>
+
+</body>
 </html>

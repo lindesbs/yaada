@@ -1,0 +1,99 @@
+$itemBackColor: #161b1f;
+$itemTitleColor: #fefefe;
+
+$itemDescColor: lighten($itemTitleColor, 20);
+$backgroundImage: "../images/fakurian-desig-tac7TY2ItGA-unsplash.jpg";
+
+body {
+  background-image: url($backgroundImage);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+label {
+  color: #4a148c !important;
+}
+
+form {
+  background: darkgray;
+  color: whitesmoke;
+  padding:16px;
+  border-radius: 12px;
+}
+
+
+.yaadaApp {
+  width: 100%;
+  background-color: $itemBackColor;
+  border-radius: 4px;
+  margin: 8px;
+
+  overflow: hidden;
+
+  .item {
+    border: 1px solid rgba(76, 76, 76, 0.4);
+    background-clip: padding-box;
+    padding: 8px;
+    background-color: lighten($itemBackColor, 20);
+    box-sizing: border-box;
+
+    min-height: 84px;
+
+    .appImage, .buttons {
+      float: left;
+      display: inline-block;
+      max-width: 20%;
+      min-height: 20px;
+    }
+
+    .appImage {
+      margin-right: 8px;
+      float: left;
+      display: inline-block;
+      max-width: 74px;
+
+      img {
+        border: white solid 1px;
+      }
+    }
+
+    .details {
+      float: left;
+      display: inline-block;
+      min-height: 20px;
+      width: 60%;
+
+      .title {
+        color: $itemTitleColor;
+        width: 100%;
+        border-bottom: #4a148c;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      .description {
+        color: $itemDescColor;
+        font-weight: 300;
+        font-size: 0.8rem;
+      }
+    }
+
+    .buttons {
+      float: left;
+      display: inline-block;
+      vertical-align: bottom;
+      opacity: 0.1;
+    }
+
+    .buttons:hover {
+      opacity: 1.0;
+    }
+
+    a:hover {
+      background: #9575cd;
+    }
+
+  }
+}

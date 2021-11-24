@@ -1,0 +1,80 @@
+body {
+  background-image: url("../images/fakurian-desig-tac7TY2ItGA-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+label {
+  color: #4a148c !important;
+}
+
+form {
+  background: darkgray;
+  color: whitesmoke;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.yaadaApp {
+  width: 100%;
+  background-color: #161b1f;
+  border-radius: 4px;
+  margin: 8px;
+  overflow: hidden;
+}
+.yaadaApp .item {
+  border: 1px solid rgba(76, 76, 76, 0.4);
+  background-clip: padding-box;
+  padding: 8px;
+  background-color: #404f5b;
+  box-sizing: border-box;
+  min-height: 84px;
+}
+.yaadaApp .item .appImage, .yaadaApp .item .buttons {
+  float: left;
+  display: inline-block;
+  max-width: 20%;
+  min-height: 20px;
+}
+.yaadaApp .item .appImage {
+  margin-right: 8px;
+  float: left;
+  display: inline-block;
+  max-width: 74px;
+}
+.yaadaApp .item .appImage img {
+  border: white solid 1px;
+}
+.yaadaApp .item .details {
+  float: left;
+  display: inline-block;
+  min-height: 20px;
+  width: 60%;
+}
+.yaadaApp .item .details .title {
+  color: #fefefe;
+  width: 100%;
+  border-bottom: #4a148c;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.yaadaApp .item .details .description {
+  color: white;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.yaadaApp .item .buttons {
+  float: left;
+  display: inline-block;
+  vertical-align: bottom;
+  opacity: 0.1;
+}
+.yaadaApp .item .buttons:hover {
+  opacity: 1;
+}
+.yaadaApp .item a:hover {
+  background: #9575cd;
+}
+
+/*# sourceMappingURL=yaada.css.map */
