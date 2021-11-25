@@ -21,9 +21,36 @@ class DashboardController extends AbstractController
 	{
 		$arrItems = $itemRepository->getAllForOverview();
 
+		$section0 = new Section();
+		$section0->setName("Allgemein");
+		$section0->setDescription("Sammelbecken");
+
+		$arrOutputSections = [];
+		$arrOutputItems = [];
+		foreach ($arrItems as $item)
+		{
+			$section = ($item->getSection()) ?: $section0;
+
+			$id=0;
+
+			if ($item->getSection())
+			{
+				$id = $item->getSection()->getId() ?: 0;
+			}
+
+			if (!array_key_exists($id, $arrOutputItems))
+			{
+				$arrOutputItems[$id] = [];
+			}
+
+			$arrOutputSections[$id] = $section;
+			$arrOutputItems[$id][] = $item;
+		}
+
 
 		return $this->render('dashboard/index.html.twig', [
-			'items' => $arrItems
+			'sections' => $arrOutputSections,
+			'items' => $arrOutputItems
 		]);
 	}
 

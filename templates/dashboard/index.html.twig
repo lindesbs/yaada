@@ -1,33 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Uebersicht{% endblock %}
-{% set lastSection = -1 %}
-{% set closeSection = false %}
 
 
 {% block body %}
 
-    <div class="row">
+<ul class="collapsible">
 
-    {% for item in items %}
-        {% if lastSection != item.section %}
 
-            </div>
-            <div class="row">
-                <div class="col m4">
-        {%  if item.section.Name is defined %}<h3> {{ item.section.Name }}</h3>{% endif %}
-                </div>
-                <div class="col m4">
-        {%  if item.section.Description is defined %}<h4> {{ item.section.Description }}</h4>{% endif %}
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
+    {% for sectionKey, section in sections %}
+    <li>
+        <div class="collapsible-header">
+                {% if section.Name is defined %}{{ section.Name }}{% endif %}
+                {% if section.Description is defined %}<small> {{ section.Description }}</small>{% endif %}
+        </div>
 
-        {% set lastSection = item.Section %}
-        {% set closeSection = true %}
-        {% endif %}
-        <div class="col m3">
+
+        <div class="collapsible-body"><span>
+{% for item in items[sectionKey] %}
             <section class="yaadaApp z-depth-2">
                 <a href="{{ item.link }}"{% if item.newTab %} target="_blank"{% endif %}>
                     <div class="item">
@@ -46,14 +36,13 @@
                         </div>
                     </div>
                 </a>
-
-
             </section>
-        </div>
 
         {% endfor %}
-    </div>
-        {% endblock %}
+            </span>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 
-        {% block footer_js %}
         {% endblock %}
